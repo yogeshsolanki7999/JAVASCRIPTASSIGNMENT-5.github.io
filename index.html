@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 style="text-align: center;"> TO SEE THE ANSWER USE CONSOLE </h3>
+    <script>
+      let kbc = {
+        current_question: 0,
+        prize: 0,
+        quuestions_list: [
+          {
+            question: "what is sun ?",
+            optons: ["planet", "star", "galaxy", "nuetron star"],
+            Right_answer: "star",
+            price: 100,
+          },
+          {
+            question: "who is the richest person in india",
+            optons: [
+              "Gautam adani",
+              "Ratan tata",
+              "Mukesh ambani",
+              "Rakesh jhunjhunwala",
+            ],
+            Right_answer: "Gautam adani",
+            price: 500,
+          },
+          {
+            question: "Who is the strongest fictional character  among these ?",
+            optons: ["Goku", "Super man", "Saitama", "Narruto"],
+            Right_answer: "Goku",
+            price: 4000,
+          },
+          {
+            question: "Which is the best programing language",
+            optons: ["Php", "Java", "JavaScript", "python"],
+            Right_answer: "Java",
+            price: 16000,
+          },
+          {
+            question: "Who is the most popular comic superhero",
+            optons: ["Ironman", "Batman", "Spiderman", "Supeman"],
+            Right_answer: "Spiderman",
+            price: 75000,
+          },
+        ],
+
+        Question: function () {
+          console.log(
+            "Question -> " + this.quuestions_list[this.current_question].question
+          );
+        },
+
+        show_option: function () {
+          for (
+            let i = 0;
+            i < this.quuestions_list[this.current_question].optons.length;
+            i++
+          ) {
+            console.log(
+              "option " +
+                i +
+                " : "+
+                this.quuestions_list[this.current_question].optons[i]
+            );
+          }
+        },
+        My_answer: function (answer1) {
+          let str1 = String(answer1);
+          let result = str1.localeCompare(
+            this.quuestions_list[this.current_question].Right_answer
+          );
+          if (result == 0) {
+            this.prize = this.prize + this.quuestions_list[this.current_question].price;
+            this.current_question++;
+            console.log(
+              "Congratulations your answer is right and your total winnings are is " +
+                this.prize
+            );
+          } else {
+            console.log(
+              "your answer is wrong ! you lost the game and your winning amount is " +
+               this. prize
+            );
+          }
+        },
+       
+      };
+
+      
+
+
+     //Kbc.Question is used to print first question
+      kbc.Question();
+
+
+      //Kbc.show_option is used to all the answers
+      kbc.show_option();
+
+      //Kbc.my_answer is the rigth answer if you insert any other answer the game is over and this function is used to give answer
+      kbc.My_answer("star");
+
+      //Kbc.Question is used to second first question
+      kbc.Question();
+
+       //Kbc.show_option is used to all the answers
+      kbc.show_option();
+
+      //Kbc.my_answer is the rigth answer if you insert any other answer the game is over and this function is used to give answer
+      kbc.My_answer("Gautam adani");
+
+      //this is all vice versa
+      kbc.Question();
+      kbc.show_option();
+      kbc.My_answer("Goku");
+
+      kbc.Question();
+      kbc.show_option();
+      kbc.My_answer("Java");
+
+      //I AM SUBMITTING WRONG ANWER
+      kbc.Question();
+      kbc.show_option();
+      kbc.My_answer("wrong");
+      
+
+      //you can use this method and print the question and give the answer to check the system
+      
+      /*I can give this all in a loop but i preffered to call them sepeately to see all the functinality i provided it is
+      shows how the game modules works seperatly and i have also claculated the prize money as well increamenting this money 
+      with every right answered question */
+
+    </script>
+  </body>
+</html>
